@@ -1,0 +1,249 @@
+{% extends 'includes/base.html' %}
+{% load static %}
+{% block content %}
+<main>
+  <!-- <div class="login-root">
+
+    <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1;">
+
+      <div class="loginbackground box-background--white padding-top--64">
+
+        <div class="loginbackground-gridContainer">
+
+          <div class="box-root flex-flex" style="grid-area: top / start / 8 / end;">
+
+            <div class="box-root"
+              style="background-image: linear-gradient(white 0%, rgb(247, 250, 252) 33%); flex-grow: 1;">
+
+            </div>
+
+          </div>
+
+          <div class="box-root flex-flex" style="grid-area: 4 / 2 / auto / 5;">
+
+            <div class="box-root box-divider--light-all-2 animationLeftRight tans3s" style="flex-grow: 1;"></div>
+
+          </div>
+
+          <div class="box-root flex-flex" style="grid-area: 6 / start / auto / 2;">
+
+            <div class="box-root box-background--blue800" style="flex-grow: 1;"></div>
+
+          </div>
+
+          <div class="box-root flex-flex" style="grid-area: 7 / start / auto / 4;">
+
+            <div class="box-root box-background--blue animationLeftRight" style="flex-grow: 1;"></div>
+
+          </div>
+
+          <div class="box-root flex-flex" style="grid-area: 8 / 4 / auto / 6;">
+
+            <div class="box-root box-background--gray100 animationLeftRight tans3s" style="flex-grow: 1;"></div>
+
+          </div>
+
+          <div class="box-root flex-flex" style="grid-area: 2 / 15 / auto / end;">
+
+            <div class="box-root box-background--cyan200 animationRightLeft tans4s" style="flex-grow: 1;"></div>
+
+          </div>
+
+          <div class="box-root flex-flex" style="grid-area: 3 / 14 / auto / end;">
+
+            <div class="box-root box-background--blue animationRightLeft" style="flex-grow: 1;"></div>
+
+          </div>
+
+          <div class="box-root flex-flex" style="grid-area: 4 / 17 / auto / 20;">
+
+            <div class="box-root box-background--gray100 animationRightLeft tans4s" style="flex-grow: 1;"></div>
+
+          </div>
+
+          <div class="box-root flex-flex" style="grid-area: 5 / 14 / auto / 17;">
+
+            <div class="box-root box-divider--light-all-2 animationRightLeft tans3s" style="flex-grow: 1;"></div>
+
+          </div>
+
+        </div>
+
+      </div> -->
+
+  <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">
+
+    <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
+
+      <h1><a href=# rel="dofollow">Solicitar cotización</a></h1>
+
+    </div>
+
+    <div class="formbg-outer">
+      <div class="formbg">
+        <div class="formbg-inner padding-horizontal--48">
+
+
+            <div class="field padding-bottom--24">
+              <label for="sub-service">Nombre completo</label>
+              <div class="text">
+                <input type="text" name="nombre" id="nombre" placeholder="Juan Perez Benavides">
+              </div>
+            </div>
+
+          <div class="field padding-bottom--24">
+            <label for="sub-service">Email</label>
+            <div class="text">
+              <input type="text" name="email" id="email" placeholder="JuanPerez@gmail.com">
+            </div>
+          </div>
+
+          <div class="field-radio padding-bottom--24">
+            <label>Requiere factura ?</label>
+            <div class="radio-item">
+              <input type="radio" name="factura" id="facturaSi" value="Si"> Si
+            </div>
+            <div class="radio-item">
+              <input type="radio" name="factura" id="facturaNo" value="No"> No
+            </div>
+          </div>
+
+          <div id="rfcbox" style="display: none;">
+            <div class="field padding-bottom--24">
+              <label for="rfc">RFC</label>
+              <div class="text">
+                <input type="text" name="rfc" id="rfc" placeholder="RFC">
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Informacion de servicio -->
+          <div class="field padding-bottom--24">
+            <label for="service-type">¿Qué tipo de servicio logístico estás proporcionando?</label>
+            <select id="service-type" name="service-type">
+              <option value="option1">Transporte</option>
+              <option value="option2">Almacenamiento</option>
+              <option value="option3">Distribución</option>
+              <option value="option4">Combinación de servicios</option>
+            </select>
+          </div>
+
+          <div class="field-radio padding-bottom--24">
+            <label>Sera un servicio recurrente?</label>
+            <div class="radio-item">
+              <input type="radio" name="recurrente" id="recurrenteSi" value="Si"> Si
+            </div>
+            <div class="radio-item">
+              <input type="radio" name="recurrente" id="recurrenteNo" value="No"> No
+            </div>
+          </div>
+
+          <!-- Informacion de volumen -->
+          <div id="volumen-options">
+            <div class="field padding-bottom--24">
+              <label for="sub-service">Volumen de carga en m3*</label>
+              <div class="text">
+                <input type="number" name="volumen" id="volumen" placeholder="3.3" step="0.1" min="0" max="9999">
+              </div>
+            </div>
+          </div>
+
+          <div class="field padding-bottom--24">
+            <label for="sub-service">Numero de rastreo</label>
+            <div class="text">
+              <input type="text" name="email" id="email" placeholder="Solo si aplica">
+            </div>
+          </div>
+
+          <!-- Informacion de factura -->
+          <div id="PrecioFactura">
+            <div class="field padding-bottom--24">
+              <label for="sub-service">Precio de factura en pesos MX</label>
+              <div class="text">
+                <input type="number" name="precio" id="precio" placeholder="35000" step="0.1" min="0">
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Informacion de almacenamiento  -->
+          <div id="almacenamiento-options" style="display: none;">
+            <div class="field padding-bottom--24">
+              <label for="sub-service">Tiempo de almacenamiento</label>
+              <div class="text">
+                <input type="text" name="descripción" id="descripción" placeholder="Descripción de mercancía">
+              </div>
+            </div>
+          </div>
+
+
+
+          <!-- Combinacion de servicios -->
+          <div id="combinacion-options" style="display: none;">
+            <div class="field-checkbox padding-bottom--24">
+              <label for="sub-service">Elije los servicios combinados:</label>
+              <div class="checkbox-item">
+                <input type="checkbox" name="service1" id="service1" value="service1"> Transporte
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" name="service2" id="service2" value="service2"> Almacenamiento
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" name="service3" id="service3" value="service3"> Distribución
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Informacion de Transporte y Distribución  -->
+          <div id="transporte-options" style="display: none;">
+            <div class="field padding-bottom--24">
+              <label for="sub-service">Punto de carga</label>
+              <div class="text">
+                <input type="text" name="puntoDeCarga" id="puntoDeCarga" placeholder="Dirección completa">
+              </div>
+            </div>
+            <div class="field padding-bottom--24">
+              <label for="sub-service">Punto de descarga</label>
+              <div class="text">
+                <input type="text" name="puntoDeDescarga" id="puntoDeDescarga" placeholder="Dirección completa">
+              </div>
+            </div>
+          </div>
+
+
+          <div class="field padding-bottom--24">
+
+            <input type="submit" name="submit" id="cotizar-button" value="Cotizar">
+
+          </div>
+
+          </form>
+
+        </div>
+
+      </div>
+
+      <div class="footer-link padding-top--24">
+
+        <!-- <span>¿Ya tienes cuenta?<a href="">  Iniciar sesión</a></span> -->
+        <!-- 
+            <div class="listing padding-top--24 padding-bottom--24 flex-flex center-center">
+
+              <span><a href="#">© Stackfindover</a></span>
+
+              <span><a href="#">Contact</a></span>
+
+              <span><a href="#">Privacy & terms</a></span>
+
+            </div> -->
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+{% endblock %}

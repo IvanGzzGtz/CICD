@@ -1,0 +1,15 @@
+{% extends 'includes/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="message-box">
+    <p>La orden se ha creado correctamente y se le enviará un correo electrónico.</p>
+</div>
+{% endblock %}
+<script>
+    // Redirect to the home URL after 3 seconds
+    setTimeout(function() {
+        window.location.href = "{% url 'home' %}";
+    }, 3000);
+</script>
